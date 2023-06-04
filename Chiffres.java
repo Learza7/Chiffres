@@ -251,14 +251,6 @@ public class Chiffres {
      * Formule de transition, vraie ssi l'état au pas step et au pas
      * step + 1 sont liés par une action "push(num)".
      */
-    /**
-     * écrire la méthode pushNumFormula(step, num). Cette méthode renvoie une formule booléenne qui sera vraie
-si et seulement si en partant de l’état 𝑠 de l’automate au pas step et en effectuant l’action de pousser la valeur
-num sur la pile on arrive à l’état 𝑠
-′ au pas step + 1. Il faudra bien évidemment lier 𝑠 et 𝑠
-′ avec des formules Z3.
-Attention, il faudra modéliser le fait qu’on ne peut utiliser un nombre qu’une seule fois.
-     */
     private BoolExpr pushNumFormula(int step, int num) {
         BoolExpr res = context.mkTrue();
 
@@ -307,11 +299,7 @@ Attention, il faudra modéliser le fait qu’on ne peut utiliser un nombre qu’
     }
 
     /**
-     écrire la méthode actionFormula qui renvoie une expression booléenne Z3 représentant le lien existant entre
-l’état de la pile au pas step et au pas step + 1 si on exécute une action d’addition, de soustraction, de multiplication ou de division.
-L’action à effectuer est encapsulée dans un objet de type ActionVar, les préconditions de l’action dans un objet
-de type ActionPrecondition et les postconditions dans un objet de type ActionResult. On remarquera que les
-4 actions en question utilisent toutes les deux éléments du haut de la pile
+     * 
      */
     private BoolExpr actionFormula(int step, ActionVar actVar, ActionPrecondition precond, ActionResult opRes) {
         
